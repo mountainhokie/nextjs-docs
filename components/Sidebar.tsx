@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 const Sidebar: React.FC<{
   showSidebar: boolean;
 }> = ({ showSidebar }) => {
-  console.log(showSidebar);
   const pathname = usePathname();
   const [navItems, setNavItems] = useState<{ [key: string]: string[] }>({});
 

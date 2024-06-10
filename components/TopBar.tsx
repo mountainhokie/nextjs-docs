@@ -8,7 +8,6 @@ const TopBar: React.FC<{
 }> = ({ onClick, showSidebar }) => {
   const handleClick = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("handle click topbar");
     onClick(!showSidebar);
   };
 

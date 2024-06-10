@@ -11,7 +11,6 @@ export default function PageLayout({
   const [showSidebar, setShowSidebar] = useState(false);
 
   const handleButtonClick = () => {
-    console.log("handleButtonClick");
     setShowSidebar(!showSidebar);
   };
 
