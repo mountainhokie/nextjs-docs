@@ -1,16 +1,20 @@
-import { getReadMeData } from "../lib/markdown";
+import { getDocData, getAllDocPaths } from "../../../lib/markdown";
+import Pagination from "../../../components/Pagination";
 import "github-markdown-css/github-markdown.css";
 import ReactMarkdown from "react-markdown";
-import CodeBlock from "../components/CodeBlock";
-import Pagination from "@/components/Pagination";
+import CodeBlock from "../../../components/CodeBlock";
 
-export default async function HomePage({
+export async function generateStaticParams() {
+  const paths = getAllDocPaths();
+  return paths;
+}
+
+export default async function DocPage({
   params,
 }: {
   params: { section: string; id: string };
 }) {
-  const readMeData = await getReadMeData();
-
+  const docData = await getDocData(params.section, params.id);
   return (
     <>
       <div className="markdown-body">
@@ -29,7 +33,7 @@ export default async function HomePage({
               },
             }}
           >
-            {readMeData.contentMarkdown}
+            {docData.contentMarkdown}
           </ReactMarkdown>
         </article>
       </div>
