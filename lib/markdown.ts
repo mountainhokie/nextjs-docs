@@ -75,7 +75,7 @@ export const getDocData = async (section: string, id: string) => {
 };
 
 export const getReadMeData = async () => {
-  const fullPath = path.join(process.cwd(), "ReadMe.md");
+  const fullPath = path.join(process.cwd(), "README.md");
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
